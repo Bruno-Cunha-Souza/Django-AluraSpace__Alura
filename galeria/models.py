@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 # null=False --> Não pode ser nula
 class Fotografia(models.Model):
@@ -13,6 +14,7 @@ class Fotografia(models.Model):
     descricao = models.TextField(null=False, blank=False)
     foto = models.CharField(max_length=100, null=False, blank=False)
     publicada = models.BooleanField(default=False)
+    data_fotografia = models.DateTimeField(default=datetime.now, blank=False)
     
     # Retorna a string nome
     def __str__(self):
